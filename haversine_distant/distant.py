@@ -18,7 +18,7 @@ for i in range(len(lat) - 1):
     goal = (clat[i + 1].value, clng[i + 1].value)
     dist = haversine(start, goal, unit = 'm')
     print(start, goal, dist)
-    res.append([dist])
+    res.append([str(round(dist, 2)) + 'm'])
     # print(lat[i + 1].value, lng[i + 1].value, clat[i + 1].value, clng[i + 1].value)
 
 result.save('result.xlsx')
