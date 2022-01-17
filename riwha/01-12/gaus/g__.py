@@ -32,7 +32,7 @@ count = 0
 for d in l1_data:
     count = count + 1
     mu = d - laneToCenter
-    newPdf = stats.norm(mu,2*abs(d)).pdf(x)
+    newPdf = stats.norm(mu,2*abs(mu)).pdf(x)
     pdf1 = pdf1 * newPdf
     s = pdf1.sum() * Tx
     pdf1 = pdf1 / s
@@ -44,8 +44,8 @@ for d in l1_data:
 count = 0
 for d in l2_data:
     count = count + 1
-    mu = d
-    newPdf = stats.norm(mu,2*abs(d)).pdf(x)
+    mu = d + lane2Center
+    newPdf = stats.norm(mu,2*abs(mu)).pdf(x)
     pdf2 = pdf2 * newPdf
     s = pdf2.sum() * Tx
     pdf2 = pdf2 / s
@@ -58,7 +58,7 @@ count = 0
 for d in l3_data:
     count = count + 1
     mu = d + laneToCenter
-    newPdf = stats.norm(mu,2*abs(d)).pdf(x)
+    newPdf = stats.norm(mu,2*abs(mu)).pdf(x)
     pdf3 = pdf3 * newPdf
     s = pdf3.sum() * Tx
     pdf3 = pdf3 / s
