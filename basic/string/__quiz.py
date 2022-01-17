@@ -1,6 +1,3 @@
-from tracemalloc import start
-
-
 domain = "http://youtube.com"
 
 print(domain)
