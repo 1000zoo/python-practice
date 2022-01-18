@@ -13,4 +13,17 @@ print(cabinet)
 print(cabinet.get("JW"))
 print(cabinet.get("MJ"))
 
-#5-2 중반부분부터
+cabinet["JW"] = "1548487"
+cabinet["MJ"] = "1144586"
+cabinet["JK"] = "1486543"
+print(cabinet)
+
+del cabinet["JK"]
+print(cabinet)
+
+print(cabinet.keys())
+print(cabinet.values())
+print(cabinet.items())
+
+cabinet.clear()
+print(cabinet)
