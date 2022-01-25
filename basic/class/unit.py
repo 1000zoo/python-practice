@@ -8,6 +8,3 @@ class Unit:
         
 unit1 = Unit("Marine", 40, 5)
 unit2 = Unit("Tank", 200, 30)
-
-print(unit1)
-print(unit2)
