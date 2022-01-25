@@ -1,0 +1,3 @@
+Math: 50
+Java: 70
+Python: 80과학: 90
