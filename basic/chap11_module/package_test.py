@@ -1,5 +1,5 @@
-import package.china as cp
-import package.japan as jp
+import package__test.china as cp
+import package__test.japan as jp
 
 cp.ChinaPackage().detail()
 jp.JapanPackage().detail()
