@@ -11,5 +11,7 @@
 # print(ls)
 
 li = ['a', 'b', 'c', 'a']
+ll = ['a', 'b', 'c']
+ll.append('a')
 
-print(li.index('b',  1))
+print(li == ll)
