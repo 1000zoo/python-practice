@@ -11,5 +11,5 @@
 # print(ls)
 
 li = ['a', 'b', 'c', 'a']
-
-print(li.index('b',  1))
+c = 'abca'
+print(str(li) == str(c))

@@ -6,11 +6,12 @@ class NoneAlphabetError(Exception):
 # answer = "HANGMAN"
 # blank = "_"*len(answer)
 answer = list("HANGMAN")
+answer_backup = list("HANGMAN")
 blank = list("_"*len(answer))
 
 
 
-while answer != '-'*len(blank):
+while answer != answer_backup:
     try:
         turn = input(">>>")
         if len(turn) != 1 or type(turn) != str:
