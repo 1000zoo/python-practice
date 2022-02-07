@@ -11,7 +11,11 @@ blank = list("_"*len(answer))
 
 
 
+<<<<<<< HEAD
 while answer != answer_backup:
+=======
+while blank != answer_backup:
+>>>>>>> 3115d82abdd5953db23b54fe335ccc2742e92878
     try:
         turn = input(">>>")
         if len(turn) != 1 or type(turn) != str:
@@ -35,5 +39,4 @@ while answer != answer_backup:
         i += k + 1
     print(str(blank))
     
-    
-#루프탈출
+print("Correct!")
