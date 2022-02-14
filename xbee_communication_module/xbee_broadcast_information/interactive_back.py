@@ -83,7 +83,7 @@ def data_send_reactive(data):
     print("reacting to %s" % data[2])
     net = broadbee.get_network()
     reac = net.discover_device(data[2])
-    dataToSend = data[0] + "/" + data[1] + "/" + data[2]
+    dataToSend = userInfo[0] + "/" + userInfo[1] + "/" + broadbee.get_node_id()
     broadbee.send_data(reac, dataToSend)
     print("success")
 
