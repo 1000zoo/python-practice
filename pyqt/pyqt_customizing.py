@@ -10,8 +10,12 @@ class MyWindow(QMainWindow):
         self.setWindowIcon(QIcon("icon/myIcon1"))
         
         btn = QPushButton("OK", self)
-        btn.move(150,200)
+        btn.move(100,200)
         label = QLabel("Hello", self)
+        btn.clicked.connect(self.btn_clicked)
+        
+    def btn_clicked(self):
+        print("cliked.")
         
 app = QApplication(sys.argv)
 window = MyWindow()

@@ -2,8 +2,8 @@ from digi.xbee.devices import *
 
 PORT = 'COM5'
 BAUD_RATE = 9600
-
-DATA_TO_SEND = "ON AIR"
+LANE = "lane2"
+VEHICLE_ID = "97가1006"
 
 broadbee = XBeeDevice(PORT, BAUD_RATE)
 
@@ -14,8 +14,10 @@ try:
     broadbee.open()
     print("done")
     
-    broadbee.send_data_broadcast(DATA_TO_SEND)
-    print("%s to all" % broadbee.get_64bit_addr())
+    dataToSend = VEHICLE_ID + "/" + LANE
+    
+    broadbee.send_data_broadcast(dataToSend)
+    print("%s to all\n data : %s" % (broadbee.get_64bit_addr(), dataToSend))
     
 except InvalidOperatingModeException as err:
     print(err)
