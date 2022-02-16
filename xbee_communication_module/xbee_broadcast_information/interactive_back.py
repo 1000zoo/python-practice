@@ -8,7 +8,7 @@ BAUD_RATE = 9600
 
 LANE = "lane2"          #주행 차선
 VEHICLE_ID = "97가1006" #차량 번호
-WEB_ADDRESS = "localhost1"
+WEB_ADDRESS = "http://28no8144.cns-link.net"
 DETECTED = True         #차량 감지
 
 #main
@@ -16,30 +16,25 @@ def main():
     global isCallbackOn
     global userInfo
     global broadbee
-    isCallbackOn = False
     interface.main_if()
     broadbee = XBeeDevice(PORT, BAUD_RATE)
 
     try:
         broadbee.open()
         userInfo = init_user()
-            
-    except InvalidOperatingModeException as err:
-        print(err)
-
-    finally:
         lane_check()
-        if not isCallbackOn:
-            broadbee.add_data_received_callback(data_receive_callback)
-            isCallbackOn = True
+        broadbee.add_data_received_callback(data_receive_callback)
 
         if is_detected():
             data_broadcast()
         else:
-            print(("not dectected..."))
+            print("not dectected...")
         input()
         # time.sleep(5)
         print("end of the function")
+            
+    except InvalidOperatingModeException as err:
+        print(err)
 
 #감지 확인 함수
 def is_detected():
@@ -49,7 +44,8 @@ def is_detected():
 def data_receive_callback(xbee_message):
     interface.data_receive_callback_if()
     dataReceived = string_to_dict(xbee_message.data.decode())
-    print(str(datetime.now()) + "\n" + str(dataReceived))
+    print(datetime.now())
+    print(dataReceived)
     if dataReceived["lane"] == userInfo["lane"]:
         print("same lane")
         if dataReceived["dataType"] == "broadcast":
@@ -59,7 +55,6 @@ def data_receive_callback(xbee_message):
     else:
         print("diff lane")
         print(dataReceived["lane"], userInfo["lane"])
-    isCallbackOn = False
 
 #감지 시 송신용 함수
 def data_broadcast():
@@ -98,6 +93,6 @@ def string_to_dict(s):
             print(err)
             return
     return dic
-    
+
 if __name__ == '__main__':
     main()
