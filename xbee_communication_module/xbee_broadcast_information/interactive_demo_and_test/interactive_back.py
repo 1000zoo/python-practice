@@ -73,7 +73,6 @@ def data_send_reactive(data):
 
 #사용자 정보를 초기화 해주는 함수
 def init_user():
-    interface.init_user_if()
     ui = {"vehicleId" : VEHICLE_ID, "web" : WEB_ADDRESS,
         "nodeId" : broadbee.get_node_id(), "dataType" : "None"}
     return ui
