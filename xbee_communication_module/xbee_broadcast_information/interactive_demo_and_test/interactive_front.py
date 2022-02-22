@@ -1,4 +1,3 @@
-from charset_normalizer import detect
 from digi.xbee.devices import *
 from datetime import datetime
 import interface
@@ -9,10 +8,10 @@ BAUD_RATE = 9600
 
 LANE = "lane2"          #주행 차선
 VEHICLE_ID = "12나3456" #차량 번호
-WEB_ADDRESS = "http://28no8114.cns-link.net"
+WEB_ADDRESS = "localhost"
 DETECTED = False         #차량 감지
 
-WebServerAddress = "/var/www/html/"
+WebServerAddress = "/etc/ee"
 
 #main
 def main():

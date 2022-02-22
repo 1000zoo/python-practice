@@ -1,4 +1,3 @@
-from charset_normalizer import detect
 from digi.xbee.devices import *
 from datetime import datetime
 import interface
