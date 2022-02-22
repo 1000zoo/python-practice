@@ -73,7 +73,7 @@ def data_receive_callback(xbee_message):
             if is_my_back(dataReceived["azi"], dataReceived["gps"]):
                 print("gps: %s" % dataReceived["gps"])  #받은 정보 처리 추가
                 print("my back car")
-                data_send_reactive(dataReceived["nid"])
+                data_send_reactive(dataReceived["nId"])
             else:
                 print("not my back car")
         else:
@@ -90,7 +90,7 @@ def data_receive_callback(xbee_message):
             print("Key '%s' does not exist in data" % err)
 
 def is_my_back(azi, gps):
-    myg = xu.str_to_flist(di.get_gps())    #my gps
+    myg = di.get_gps()    #my gps
     reg = xu.str_to_flist(gps)          #received gps
     try:
         a = xu.Azimuth(myg[0], myg[1], reg[0], reg[1])
@@ -103,13 +103,13 @@ def is_my_back(azi, gps):
         print("Invalid data")
         raise KeyError("imb")
 def data_broadcast():
-    data_to_send = make_dict_from("lne", "gps", "nid", "azi")       #보낼 정보를 str로 생성
+    data_to_send = make_dict_from("lne", "gps", "nId", "azi")       #보낼 정보를 str로 생성
     broadbee.send_data_broadcast(data_to_send)
     
 def data_send_reactive(to): #X
     interface.data_send_reactive_if()
     print("reacting to %s" % to)
-    data_to_send = make_dict_from("lne", "vid")       #보낼 정보를 str로 생성
+    data_to_send = make_dict_from("lne", "vId")       #보낼 정보를 str로 생성
     net = broadbee.get_network()
     reac = net.discover_device(to)
     broadbee.send_data(reac, data_to_send)
