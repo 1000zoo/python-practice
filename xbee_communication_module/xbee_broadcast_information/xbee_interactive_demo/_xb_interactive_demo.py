@@ -90,7 +90,7 @@ def data_receive_callback(xbee_message):
             print("Key '%s' does not exist in data" % err)
 
 def is_my_back(azi, gps):
-    myg = di.get_gps()    #my gps
+    myg = di.get_gps()    #my gps 
     reg = xu.str_to_flist(gps)          #received gps
     try:
         a = xu.Azimuth(myg[0], myg[1], reg[0], reg[1])
