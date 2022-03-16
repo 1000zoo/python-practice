@@ -5,4 +5,5 @@ def printname(name):
 
 sc.every(10).seconds.do(printname, "JW")
 
-sc.run_pending()
+while True:
+    sc.run_pending()
