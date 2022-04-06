@@ -144,6 +144,10 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+bin/
+lib/
+*.cfg
+
 .DS_Store
 .idea/
 
