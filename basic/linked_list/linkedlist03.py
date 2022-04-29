@@ -1,9 +1,10 @@
 from linkedlist import LinkedList as ll
 
 head = 1
-tail = 5
+tail = 15
 head_node = ll(head)
 pre_node = head_node
+
 for i in range(head + 1, tail + 1):
     curr_node = ll(i)
     pre_node.next = curr_node
