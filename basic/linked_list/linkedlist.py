@@ -28,3 +28,4 @@ class LinkedList:
                 return "no %d in this node" % val
             else:
                 return self.next.delete_node(self, val)
+
