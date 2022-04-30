@@ -18,14 +18,26 @@ class LinkedList:
                 count = 0
             self.next.print_all_next_node(count)
     
+    # 처음으로 등장하는 val 제거
     def delete_node(self, pre_node, val):
         if self.val == val:
             pre_node.next = self.next
             return "success"
-        
         else:
             if self.next is None:
                 return "no %d in this node" % val
             else:
                 return self.next.delete_node(self, val)
+
+    # 처음으로 등장하는 val 뒤에 새로운 값 추가
+    def insert_node(self, val, new_val):
+        if self.val == val:
+            new_node = LinkedList(new_val, self.next)
+            self.next = new_node
+            return "success"
+        else:
+            if self.next is None:
+                return "no %d in this node" % val
+            else:
+                return self.next.insert_node(val, new_val)
 
