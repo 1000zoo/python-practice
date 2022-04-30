@@ -41,3 +41,12 @@ class LinkedList:
             else:
                 return self.next.insert_node(val, new_val)
 
+    # linked list 역순으로
+    def reverse_node(self, pre_node = None):
+        if self.next is None:
+            self.next = pre_node
+            return self
+        else:
+            new_head = self.next.reverse_node(self)
+            self.next = pre_node
+            return new_head
